@@ -1,0 +1,92 @@
+{
+  "members": [
+    {
+      "id": "b240ee35-211a-4004-8b4f-5a0e4596df23",
+      "email": "kemboiv233@gmail.com",
+      "full_name": "Vic Tor",
+      "role": "member",
+      "status": "active",
+      "balance": 100,
+      "activation_key": "983743669",
+      "activation_keys": [
+        {
+          "key_value": "983743669",
+          "status": "active",
+          "membership_plan": "Standard"
+        }
+      ],
+      "created_at": "2026-11-25T14:18:49.084Z"
+    },
+    {
+      "id": "admin-master-id",
+      "full_name": "John Doe",
+      "email": "johndoe1@gmail.com",
+      "role": "admin",
+      "status": "active",
+      "balance": 0,
+      "activation_key": "657284107",
+      "created_at": "2026-11-20T00:00:00.000Z"
+    },
+    {
+      "id": "member-alex-id",
+      "full_name": "Alex Vance",
+      "email": "alex.trader@gmail.com",
+      "role": "member",
+      "status": "active",
+      "balance": 0,
+      "activation_key": "657284107",
+      "created_at": "2026-11-22T00:00:00.000Z"
+    },
+    {
+      "id": "member-sarah-id",
+      "full_name": "Sarah Miller",
+      "email": "sarah.m@fxinvest.com",
+      "role": "member",
+      "status": "active",
+      "balance": 0,
+      "activation_key": "123456789",
+      "created_at": "2026-11-24T00:00:00.000Z"
+    }
+  ],
+  "keys": [
+    {
+      "id": "key-1795616277942-4775",
+      "key_value": "983743669",
+      "membership_plan": "Standard",
+      "expires_at": "2026-12-25T14:17:57.942Z",
+      "status": "active",
+      "assigned_to": "kemboiv233@gmail.com",
+      "profiles": {
+        "full_name": "Vic Tor",
+        "email": "kemboiv233@gmail.com"
+      },
+      "created_at": "2026-11-25T14:17:57.942Z"
+    },
+    {
+      "id": "key-primary-1",
+      "key_value": "657284107",
+      "membership_plan": "VIP",
+      "status": "active",
+      "assigned_to": "alex.trader@gmail.com",
+      "profiles": {
+        "full_name": "Alex Vance",
+        "email": "alex.trader@gmail.com"
+      },
+      "expires_at": "2027-11-25T00:00:00.000Z",
+      "created_at": "2026-11-25T00:00:00.000Z"
+    },
+    {
+      "id": "key-default-2",
+      "key_value": "123456789",
+      "membership_plan": "Standard",
+      "status": "active",
+      "assigned_to": "sarah.m@fxinvest.com",
+      "profiles": {
+        "full_name": "Sarah Miller",
+        "email": "sarah.m@fxinvest.com"
+      },
+      "expires_at": "2027-11-25T00:00:00.000Z",
+      "created_at": "2026-11-25T00:00:00.000Z"
+    }
+  ]
+}
