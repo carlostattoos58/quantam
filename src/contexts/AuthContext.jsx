@@ -219,23 +219,29 @@ export function AuthProvider({ children }) {
       return { error: { message: 'Invalid or expired activation key.' } };
     }
 
-    let userObj = { id: 'usr-' + Date.now(), email, full_name: fullName };
-
+    let data;
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const response = await supabase.auth.signUp({
         email,
         password,
         options: { data: { full_name: fullName } }
       });
-      if (data?.user) {
-        userObj = { ...data.user, email, full_name: fullName };
-      }
+      if (response.error) return { error: response.error };
+      data = response.data;
     } catch (authErr) {
-      console.warn('Supabase auth signUp note:', authErr);
+      return { error: authErr };
     }
 
-    // Always register member and mark key as used immediately!
+    if (!data?.user) {
+      return { error: { message: 'Supabase did not create an account. Check your project configuration and try again.' } };
+    }
+
+    const userObj = { ...data.user, email, full_name: fullName };
     registerMemberAndKeyUsage(activationKey, userObj, fullName);
+
+    if (!data.session) {
+      return { data: { user: userObj }, error: null, needsEmailConfirmation: true };
+    }
 
     // Auto-login newly registered member
     const userProfile = {

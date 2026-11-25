@@ -22,9 +22,14 @@ export default function AuthPage({ activationData, onBackToGate }) {
       if (form.password !== form.confirmPassword) return setError('Passwords do not match.');
       if (form.password.length < 8) return setError('Password must be at least 8 characters.');
       setLoading(true);
-      const { error: err } = await signUp({ ...form, activationKey: activationData?.key });
+      const { error: err, needsEmailConfirmation } = await signUp({ ...form, activationKey: activationData?.key });
       setLoading(false);
       if (err) return setError(err.message);
+      if (needsEmailConfirmation) {
+        setMode('login');
+        setSuccess('Account created. Check your email to confirm your account, then sign in.');
+        return;
+      }
       navigate('/dashboard');
     } else if (mode === 'login') {
       if (!form.email || !form.password) return setError('Email and password are required.');
